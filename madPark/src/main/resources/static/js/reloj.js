@@ -1,15 +1,68 @@
+//
+let matricula1 = document.getElementById("matricula1");
+let matricula2 = document.getElementById("matricula2");
+let matricula3 = document.getElementById("matricula3");
+let matricula4 = document.getElementById("matricula4");
+let matricula5 = document.getElementById("matricula5");
 
-const user_name = document.getElementById("name");
-const apellidos = document.getElementById("apellidos");
-const email = document.getElementById("email");
-const password = document.getElementById("password");  
-const numTarjeta = document.getElementById("numTarjeta");
-const cvv = document.getElementById("cvv");
-const caducidad = document.getElementById("caducidad");
-const form = document.getElementById("signup");
+matricula1.style.visubility="hidden";
+matricula2.style.visubility="hidden";
+matricula3.style.visubility="hidden";
+matricula4.style.visubility="hidden";
+matricula5.style.visubility="hidden";
 
 
 
+//MOSTAR MATRÍCULAS ACTUALES
+
+async function mostrarMatriculas() {
+
+    fetch("/api/v1/matriculas") //Devuelve una promise
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+
+            for (let i = 0; i < 5; i++) {
+                if (data[0][i] != null) {
+
+                    if (i == 0) {
+                        matricula1.isVisible();
+                        matricula1.value = data[0][i];
+                    }
+                    if (i == 1) {
+                        matricula2.isVisible();
+                        matricula2.value = data[0][i];
+                    }
+                    if (i == 2) {
+                        matricula3.isVisible();
+                        matricula3.value = data[0][i];
+                    }
+                    if (i == 3) {
+                        matricula4.isVisible();
+                        matricula4.value = data[0][i];
+                    }
+                    if (i == 4) {
+                        matricula5.isVisible();
+                        matricula5.value = data[0][i];
+                    }
+                }
+            }
+        })
+}
+//AÑADIR NUEVAS MATRÍCULAS
+const dropdown_matriculas = document.getElementById("matriculas");
+if (añadir_matricula = 1) {
+    if (dropdown - menu < 6) {
+        habilitarInsertarNuevaMatricula();
+        mostrarBotonNuevaMat();
+    }
+}
+
+
+function habilitarInsertarNuevaMatricula() {
+    text_nuevaMat = Visible;
+
+}
 function showMessage(input, type) {
     if (!type) {
         input.className = "form-control is-invalid";
@@ -123,8 +176,8 @@ function validateTarjeta(input) {
 function validateCaducidad(input) {
 
     var today = new Date();
-    var cad=new Date(input.value);
-    console.log(cad.getMonth()+1)
+    var cad = new Date(input.value);
+    console.log(cad.getMonth() + 1)
 
     var year = today.getFullYear();
     var month = today.getMonth() + 1;
@@ -141,8 +194,8 @@ function validateCaducidad(input) {
     if (year > cad.getFullYear()) {
         return error(input)
     }
-    else if (year == cad.getFullYear() && month > cad.getMonth()+1) {
-        
+    else if (year == cad.getFullYear() && month > cad.getMonth() + 1) {
+
         return error(input)
     }
     else {
@@ -158,8 +211,8 @@ function validateCVV(input) {
     if (!notEmpty(input)) {
         return false;
     }
-    
-    if (cvvString.length!=3){
+
+    if (cvvString.length != 3) {
         return error(input)
     }
     else if (input.value > 999) {
@@ -187,16 +240,19 @@ async function validateForm() {
     //let docValid = validate_fileupload(form.elements["cv"],FILE_REQUIRED);
     // if valid, submit the form.
     if (nombreValid && apellidosValid && emailValid && passwordValid && numTarjetaValid && caducidadValid && cvvValid) {
-        
-        var cad=new Date(caducidad.value);
-        const fechaCaducidad=String(cad.getMonth()+1)+ "/" + String(cad.getFullYear())
+
+        var cad = new Date(caducidad.value);
+        const fechaCaducidad = String(cad.getMonth() + 1) + "/" + String(cad.getFullYear())
         const formData = new FormData();
         console.log(fechaCaducidad)
 
-        let request = await fetch("api/v1/users", {
-            method: "POST",
+        let request = await fetch("/api/v1/matriculas", {
+            method: "PUT",
             credentials: "same-origin",
             headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
                 "Content-type": "application/json"
             },
             body: JSON.stringify({

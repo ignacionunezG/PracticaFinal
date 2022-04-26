@@ -11,7 +11,7 @@ async function validateForm() {
 
     const formData = new FormData();
 
-    let api = "api/v1/users/" + email
+    let api = "/api/v1/users/" + email
 
     fetch(api) //Devuelve una promise
         .then((response) => {

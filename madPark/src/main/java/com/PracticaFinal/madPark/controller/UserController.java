@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1.0")
+@RequestMapping("http://localhost:8080/api/v1")
 public class UserController {
     public record DataResponse (String result) {}
 
