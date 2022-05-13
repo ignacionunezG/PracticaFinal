@@ -1,0 +1,14 @@
+#container{
+    background: rgb(255, 255, 255);
+    width: 50em;
+    height: 100em;
+    max-width: 100em;
+    min-width: 50em;
+}
+
+
+
+#logo{
+    text-align: center;
+    margin-top: 9em;
+}
