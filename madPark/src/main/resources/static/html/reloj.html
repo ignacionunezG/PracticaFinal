@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reloj</title>
     <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-<!-- Bootstrap core CSS -->
-<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
 
-  
+
 </head>
+
 <body>
     <h1>
         Página en la que aparece el reloj corriendo mostrando el tiempo que llevas estacionado
@@ -29,21 +32,45 @@
     </p>
 
     <div class="input-group mb-3">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="matriculas">Tus matrículas</button>
+        <button class="btn btn-primary" id="añadirMatricula">Añadir matricula</button>
+    </div>
+
+    <form id="formularioMatriculas">
+        <div class="form-group">
+            <label>Matricula a añadir</label>
+            <input type="text" class="form-control" id="matriculaParaAñadir" placeholder="Mete tu matrícula">
+            <div id="msg" class="invalid-feedback">
+                Tu matrícula debe contener 4 dígitos seguidos de 3 consonantes, sin espacios
+            </div>
+
+            <small class="form-text text-muted">Recuerda que únicamente podrás añadir hasta 5 matrículas</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+
+    <div class="input-group mb-3">
+
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false" id="matriculas" disabled>Tus matrículas</button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#" id="Matricula1">Matricula 1</a></li>
-          <li><a class="dropdown-item" href="#" id="Matricula 2">Matricula 2</a></li>
-          <li><a class="dropdown-item" href="#" id="Matricula 3">Matricula 3</a></li>
-          <li><a class="dropdown-item" href="#" id="Matricula 4">Matricula 4</a></li>
-          <li><a class="dropdown-item" href="#" id="Matricula 5">Matricula 5</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Añadir matrícula</a></li>
+            <li><a class="dropdown-item" href="#" id="Matricula1">Matricula 1</a></li>
+            <li><a class="dropdown-item" href="#" id="Matricula 2">Matricula 2</a></li>
+            <li><a class="dropdown-item" href="#" id="Matricula 3">Matricula 3</a></li>
+            <li><a class="dropdown-item" href="#" id="Matricula 4">Matricula 4</a></li>
+            <li><a class="dropdown-item" href="#" id="Matricula 5">Matricula 5</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Añadir matrícula</a></li>
         </ul>
         <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
-      </div>
-      
-      <script src="../js/reloj.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    <script src="../js/reloj.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
