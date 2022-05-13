@@ -37,6 +37,17 @@ public class MatriculasServiceImplementation implements MatriculasService{
         }
         return response;
     }
+
+    
+    @Override
+    public Matriculas updateMatriculas(String email, Matriculas matriculas) {
+        if (matriculasRepository.existsById(email)) {
+            return matriculasRepository.save(matriculas);
+        } else {
+            return null;
+        }
+    }
+
 }
 
 

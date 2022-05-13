@@ -51,16 +51,13 @@ public class MatriculaController {
     }
 
 
-//    @PostMapping("/users")
-
-//    public ResponseEntity<DataResponse> createUser(@RequestBody User user) {
-//        User newUser = userService.createUser(user);
-//        if (newUser == null) {
-            //MENSAJE DE: ESE USUARIO YA EXISTE.
-//            return ResponseEntity.ok().body(new DataResponse("KO"));
-//        } else {
-//            return ResponseEntity.ok().body(new DataResponse("OK"));
-//        }
-//    }
+    @PutMapping("/matriculas/{email}/")
+    public ResponseEntity<Matriculas> updateMatriculas(@PathVariable String email, @RequestBody Matriculas matriculas) {
+        Matriculas newMatriculas = matriculasService.updateMatriculas(email, matriculas);
+        if (newMatriculas == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.ok().body(newMatriculas);
+    }
 
 }

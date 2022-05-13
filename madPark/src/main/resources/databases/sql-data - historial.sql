@@ -1,2 +1,0 @@
-INSERT INTO HISTORIAL VALUES ('inunezg@gmail.com', '1','PARKING CHAMBERI');
-
