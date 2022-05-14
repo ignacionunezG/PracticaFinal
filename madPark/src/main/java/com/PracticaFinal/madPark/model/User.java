@@ -15,12 +15,12 @@ public class User {
     @Id
     private String email;
     private String password;
-    private long numTarjeta;
+    private Long numTarjeta;
     private int cvv;
     private String caducidad;
-    
-    public String getEmail() {
-        return this.email;
+
+    public void setId(String email) {
+        this.email=email;
     }
     
 }

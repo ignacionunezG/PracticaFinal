@@ -28,8 +28,10 @@ public class UserController {
     @GetMapping("/users")
     public ResponseEntity<Iterable<User>> retrieveAllUsers() {
         Iterable<User> response = userService.retrieveAllUsers();
+        for (User user : response) {
+            System.out.println(user.toString());
+        }
         return ResponseEntity.ok().body(response);
-
     }
 
     @GetMapping("/users/{email}/")
@@ -43,18 +45,13 @@ public class UserController {
             return ResponseEntity.ok().body(new DataResponse("OK"));
         }
 
-    }
-
+    }   
 
     @PostMapping("/users")
-    public ResponseEntity<DataResponse> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        user.setId(null);
         User newUser = userService.createUser(user);
-        if (newUser == null) {
-            //MENSAJE DE: ESE USUARIO YA EXISTE.
-            return ResponseEntity.ok().body(new DataResponse("KO"));
-        } else {
-            return ResponseEntity.ok().body(new DataResponse("OK"));
-        }
+        return ResponseEntity.ok().body(newUser);
     }
 
 }

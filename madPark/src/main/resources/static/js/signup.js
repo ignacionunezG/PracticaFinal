@@ -128,10 +128,7 @@ function validateCaducidad(input) {
 
     var year = today.getFullYear();
     var month = today.getMonth() + 1;
-    console.log("hola")
-    console.log(input.value)
-    console.log(input);
-    //console.log(cad.getMonth()+1);
+    
 
     // check if the value is not empty
     if (!notEmpty(input)) {
@@ -193,7 +190,7 @@ async function validateForm() {
         const formData = new FormData();
         console.log(fechaCaducidad)
 
-        let request = await fetch("http://localhost:8080/api/v1/users", {
+        let request = await fetch(" http://127.0.0.1:8080/api/v1/users", {
             method: "POST",
             credentials: "same-origin",
             headers: {

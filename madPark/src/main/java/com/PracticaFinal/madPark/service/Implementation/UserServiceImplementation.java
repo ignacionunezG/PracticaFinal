@@ -31,14 +31,8 @@ public class UserServiceImplementation implements UserService{
     }
 
     @Override
-    public User createUser(User user){
-        String email = user.getEmail();
-        User response = null;
-
-        if (!userRepository.existsById(email)) {
-            response = userRepository.save(user);
-        }
-        return response;
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 
 }
