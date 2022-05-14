@@ -7,14 +7,16 @@ let matricula5 = document.getElementById("matricula5");
 let añadir_matricula = document.getElementById("añadirMatricula");
 let form_mat = document.getElementById("formularioMatriculas");
 let matricula_para_añadir  = document.getElementById("matriculaParaAñadir");
+let matriculas  = document.getElementById("matriculas");
 
 
+console.log(matricula1)
 form_mat.style.visibility = "hidden";
-//matricula1.style.visibility = "hidden";
-//matricula2.style.visibility = "hidden";
-//matricula3.style.visibility = "hidden";
-//matricula4.style.visibility = "hidden";
-//matricula5.style.visibility = "hidden";
+matricula1.style.visibility = "hidden";
+matricula2.style.visibility = "hidden";
+matricula3.style.visibility = "hidden";
+matricula4.style.visibility = "hidden";
+matricula5.style.visibility = "hidden";
 
 
 añadir_matricula.addEventListener("click", function (event) {
@@ -42,58 +44,32 @@ async function mostrarMatriculas() {
 
             for (let i = 0; i < 5; i++) {
                 if (data[0][i] != '') {
+                    matriculas.disabled=false;
 
                     if (i == 0) {
-                        matricula1.isVisible();
+                        matricula1.style.visibility="visible";
                         matricula1.value = data[0][i];
                     }
                     if (i == 1) {
-                        matricula2.isVisible();
+                        matricula2.style.visibility="visible";
                         matricula2.value = data[0][i];
                     }
                     if (i == 2) {
-                        matricula3.isVisible();
+                        matricula3.style.visibility="visible";
                         matricula3.value = data[0][i];
                     }
                     if (i == 3) {
-                        matricula4.isVisible();
+                        matricula4.style.visibility="visible";
                         matricula4.value = data[0][i];
                     }
                     if (i == 4) {
-                        matricula5.isVisible();
+                        matricula5.style.visibility="visible";
                         matricula5.value = data[0][i];
                     }
                 }
             }
         })
 }
-//AÑADIR NUEVAS MATRÍCULAS
-const dropdown_matriculas = document.getElementById("matriculas");
-if (añadir_matricula == 1) {
-    if (dropdown_matriculas - menu < 6) {
-        habilitarInsertarNuevaMatricula();
-        mostrarBotonNuevaMat();
-    }
-}
-
-//function añadirMatricula() {
-if (añadir_matricula == 1) {
-    form_mat.style.visibility = "visible";
-}
-
-console.log("esto es añadir_matricula");
-console.log(añadir_matricula);
-
-
-
-function habilitarInsertarNuevaMatricula() {
-    text_nuevaMat = Visible;
-}
-
-function mostrarBotonNuevaMat() {
-
-}
-
 //VALIDACION MATRICULA
 
 
@@ -152,7 +128,7 @@ async function validateForm() {
         matricula_para_añadir.value="";
         window.location.href = "./reloj.html";
 
-
+        //SE REALIZA PUT
 // ESTOS COMENTARIOS SE VAN A TENER QUE DESCOMENTAR
 //        let request = await fetch("http://localhost:8080/api/v1/matriculas/{email}", { //VER COMO PONER EL EMAIL DE VERDAD
 //            method: "PUT" //VER COMO SE HACE PUT PARA INSERTAR MATRÍCULA
