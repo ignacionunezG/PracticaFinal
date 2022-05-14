@@ -14,5 +14,4 @@ public class Historial {
     private int idPark;
     private String parking;
     
-    
 }

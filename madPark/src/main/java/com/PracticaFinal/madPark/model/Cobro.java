@@ -16,5 +16,9 @@ public class Cobro {
     private String time;
     private float cost;
     
+    public String getEmail() {
+        return email;
+    }
+    
     
 }
