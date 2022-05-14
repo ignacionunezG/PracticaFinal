@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width", inital-scale=1.0, shrink-to-fit=no">
-    <title>MadPark</title>
+    <title>MadPark - Registro</title>
     <style>
         .terms {
         display: flex;
@@ -14,7 +14,7 @@
         }
     </style>
 
-<link rel="icon" type="image/x-icon" href="/madPark/src/main/resources/static/assets/LogoPFinal.PNG" sizes="32x32"/>
+<link rel="icon" type="image/x-icon" href="../assets/zyro-image.png" sizes="32x32"/>
 
 
 
@@ -30,10 +30,16 @@
 <body>
 
     <div class="container-fluid" id="container">
+
+        <div class="row">
+            <div class="col" id="c3">
+                <img src="../assets/LogoPFinal.PNG"  alt="MadPark" width="500" height="250">
+            </div>
+        </div>
         <div class="row justify-content-center mt-6">
-            <div class="col" id="container">
+            <div class="col" id="container2">
             <div class="row mt-6">
-                <div class="col" id="logo">
+                <div class="col" id="formulario">
                    <form id="signup" class="row g-3">
                     <div class="col-md-6 col-sm-6">
                         <label for="nombre" class="form-label">Nombre: </label>
@@ -56,21 +62,22 @@
                             Por favor, introduce un email válido
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-12" id="contraseña">
                         <label for="password" class="form-label">Contraseña: </label>
                         <input type="text" class="form-control" id="password" placeholder="Nombre">
                         <div id="msg" class="invalid-feedback">
                             Tu contraseña debe contener 8 o más caracteres, y una mayúscula y una minúscula mínimo.
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-2">
+            <div class="row" id="bancarios">
+                    <div class="col-md-6 col-sm-6">
                         <label for="numTarjeta" class="form-label">Número de tarjeta: </label>
                         <input type="text" class="form-control" id="numTarjeta">
                         <div id="msg" class="invalid-feedback">
                             El número de tarjeta debe constar de 16 dígitos
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-2">
                         <label for="cvv" class="form-label">CVV: </label>
                         <input type="number" class="form-control-file" id="cvv">
                         <div id="msg" class="invalid-feedback">
@@ -78,15 +85,17 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-6" id="caducidad">
                         <label for="caducidad" class="form-label">Fecha de caducidad: </label>
                         <input type="month" class="form-control-file" id="caducidad">
                         <div id="msg" class="invalid-feedback">
                             La tarjeta está caducada
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="col-12">
+                    <div class="col-12" id="submit_btn">
                         <button type="submit" class="btn btn-primary">Send</button>
                     </div>
                 </form>
