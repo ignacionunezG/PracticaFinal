@@ -1,8 +1,8 @@
 package com.PracticaFinal.madPark.controller;
 
-import com.PracticaFinal.madPark.controller.MatriculaController.DataResponse;
 import com.PracticaFinal.madPark.model.Cobro;
 import com.PracticaFinal.madPark.service.CobroService;
+import com.PracticaFinal.madPark.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/v1")
 public class CobroController {
+    public record DataResponse (String result) {}
+
     @Autowired
     private CobroService cobroService;
 
@@ -33,13 +35,21 @@ public class CobroController {
         Cobro response = cobroService.retrieveCobro(email);
 
         if(response == null){
-            return ResponseEntity.ok().body(new DataResponse(result: "KO"));
+            return ResponseEntity.ok().body(new DataResponse("KO"));
         }else{
-            return ResponseEntity.ok().body(new DataResponse(result: "OK"));
+            return ResponseEntity.ok().body(new DataResponse("OK"));
         }
     }
 
-
+    @PostMapping("/cobro")
+    public ResponseEntity<DataResponse> createCobro(@RequestBody Cobro cobro){
+        Cobro newCobro = cobroService.createCobro(cobro);
+        if(newCobro == null){
+            return ResponseEntity.ok().body(new DataResponse("KO"));
+        }else{
+            return ResponseEntity.ok().body(new DataResponse("OK"));
+        }
+    }
 
     
 }
