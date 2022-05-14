@@ -42,13 +42,11 @@ public class CobroController {
     }
 
     @PostMapping("/cobro")
-    public ResponseEntity<DataResponse> createCobro(@RequestBody Cobro cobro){
+    public ResponseEntity<Cobro> createCobro(@RequestBody Cobro cobro){
+        
         Cobro newCobro = cobroService.createCobro(cobro);
-        if(newCobro == null){
-            return ResponseEntity.ok().body(new DataResponse("KO"));
-        }else{
-            return ResponseEntity.ok().body(new DataResponse("OK"));
-        }
+        return ResponseEntity.ok().body(newCobro);
+        
     }
 
     

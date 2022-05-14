@@ -47,7 +47,6 @@ public class UserController {
 
 
     @PostMapping("/users")
-
     public ResponseEntity<DataResponse> createUser(@RequestBody User user) {
         User newUser = userService.createUser(user);
         if (newUser == null) {
