@@ -37,7 +37,7 @@ public class MatriculaController {
 
 
     @GetMapping("/matriculas/{email}/")
-    public ResponseEntity<DataResponse> retrieveMatricula(@PathVariable String email) {
+    public ResponseEntity<DataResponse> retrieveMatriculas(@PathVariable String email) {
         ArrayList<String> response = matriculasService.retrieveMatriculas(email);
 
         if (response == null) {
