@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("http://localhost:8080/api/v1")
+@RequestMapping("/api/v1")
 public class MatriculaController {
     public record DataResponse (String result) {}
 
@@ -38,7 +38,7 @@ public class MatriculaController {
 
     @GetMapping("/matriculas/{email}/")
     public ResponseEntity<DataResponse> retrieveMatriculas(@PathVariable String email) {
-        ArrayList<String> response = matriculasService.retrieveMatriculas(email);
+        Matriculas response = matriculasService.retrieveMatriculas(email);
 
         if (response == null) {
             //MENSAJE DE: ESE USUARIO NO EXISTE.

@@ -49,20 +49,16 @@
     </form>
 
 
-    <div class="input-group mb-3">
-
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false" id="matriculas">Tus matrículas</button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#" id="matricula1">Matricula 1</a></li>
-            <li><a class="dropdown-item" href="#" id="matricula2">Matricula 2</a></li>
-            <li><a class="dropdown-item" href="#" id="matricula3">Matricula 3</a></li>
-            <li><a class="dropdown-item" href="#" id="matricula4">Matricula 4</a></li>
-            <li><a class="dropdown-item" href="#" id="matricula5">Matricula 5</a></li>
-            
-        </ul>
-        <!--<input type="text" class="form-control" aria-label="Text input with dropdown button">-->
-    </div>
+    
+    <h6>Selecciona una de tus matrículas</h6>
+    <select class="form-select" aria-label="Default select example" id="matriculas" disabled>
+        <option selected>Tus matrículas</option>
+        <option selected value="1" id="matricula1"></option>
+        <option value="2" id="matricula2"></option>
+        <option value="3" id="matricula3"></option>
+        <option value="4" id="matricula4"></option>
+        <option value="5" id="matricula5"></option>
+      </select>
 
     <script src="../js/reloj.js">
     </script>

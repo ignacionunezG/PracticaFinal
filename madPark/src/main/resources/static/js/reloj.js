@@ -47,24 +47,25 @@ async function mostrarMatriculas() {
                     matriculas.disabled=false;
 
                     if (i == 0) {
-                        matricula1.style.visibility="visible";
                         matricula1.value = data[0][i];
+                        matricula1.style.visibility="visible";
                     }
                     if (i == 1) {
+                        matricula2.value = data[0][i]; 
                         matricula2.style.visibility="visible";
-                        matricula2.value = data[0][i];
                     }
                     if (i == 2) {
-                        matricula3.style.visibility="visible";
                         matricula3.value = data[0][i];
+                        matricula3.style.visibility="visible";
                     }
                     if (i == 3) {
-                        matricula4.style.visibility="visible";
                         matricula4.value = data[0][i];
+                        matricula4.style.visibility="visible";
                     }
                     if (i == 4) {
-                        matricula5.style.visibility="visible";
                         matricula5.value = data[0][i];
+                        matricula5.style.visibility="visible";
+                        añadir_matricula.disabled="True";
                     }
                 }
             }
