@@ -128,9 +128,9 @@ function validateCaducidad(input) {
 
     var year = today.getFullYear();
     var month = today.getMonth() + 1;
-    //console.log("hola")
-    //console.log(input.value)
-    //console.log(year);
+    console.log("hola")
+    console.log(input.value)
+    console.log(input);
     //console.log(cad.getMonth()+1);
 
     // check if the value is not empty
