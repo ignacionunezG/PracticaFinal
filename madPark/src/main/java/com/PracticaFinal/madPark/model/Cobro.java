@@ -10,7 +10,9 @@ import lombok.Data;
 @Table("COBRO")
 public class Cobro {
  
+    @Id
     private String email;
+    
     private int idPark;
     private String date;
     private String time;
