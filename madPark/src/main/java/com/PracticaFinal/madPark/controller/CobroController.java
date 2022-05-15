@@ -42,7 +42,7 @@ public class CobroController {
     }
 
     @PostMapping("/cobro")
-    public ResponseEntity<Cobro> createCobro(@RequestBody Cobro cobro){
+    public ResponseEntity<Cobro> create(@RequestBody Cobro cobro){
 
         Cobro newCobro = cobroService.createCobro(cobro);
         return ResponseEntity.ok().body(newCobro);
