@@ -7,11 +7,12 @@ import java.util.List;
 import com.PracticaFinal.madPark.model.Customer;
 import com.PracticaFinal.madPark.service.CustomerService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-import org.springframework.jdbc.core.JdbcTemplate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 @Service
 public class CustomerServiceImplementation implements CustomerService{
@@ -39,7 +40,7 @@ public class CustomerServiceImplementation implements CustomerService{
 
     @Override
     public Customer createCustomer(Customer customer) {
-        return customerRepository.createCustomer(customer);
+        return customerRepository.save(customer);
         //jdbcTemplate.execute("INSERT INTO PEDIDOS (PEDIDO_ID, PRECIO, ESTADO) VALUES ("+id+","+0+","+0+")")
     }
 

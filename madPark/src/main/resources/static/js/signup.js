@@ -190,7 +190,7 @@ async function validateForm() {
         const formData = new FormData();
         console.log(fechaCaducidad)
 
-        let request = await fetch(" http://127.0.0.1:8080/api/v1/users", {
+        let request = await fetch(" /api/v1/customers", {
             method: "POST",
             credentials: "same-origin",
             headers: {

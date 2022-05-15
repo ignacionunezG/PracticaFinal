@@ -9,10 +9,10 @@ import lombok.Data;
 @Builder
 @Table("CUSTOMER")
 public class Customer {
-    
+    @Id
+    private Long id;
     private String name;
     private String apellidos;
-    @Id
     private String email;
     private String password;
     private Long numTarjeta;
