@@ -10,6 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface CustomerRepository extends CrudRepository<Customer, String> {
     @Query("SELECT * FROM CUSTOMER WHERE CUSTOMER.EMAIL= :email")
     public Iterable<Customer> retrieveCustomer(String email);
+    public Customer findByEmail(String email);
 
     @Query("INSERT INTO CUSTOMER (NAME, APELLIDOS, EMAIL, PASSWORD, NUM_TARJETA, CVV, CADUCIDAD) VALUES (customer.getName(),customer.getApellidos(),customer.getEmail(), customer.getPassowrd(), customer.getNumTarjeta(), customer.getCvv(), customer.getCaducidad())")
     public Customer createCustomer(Customer customer);
