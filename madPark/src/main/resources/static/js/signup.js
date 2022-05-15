@@ -209,7 +209,7 @@ async function validateForm() {
                 caducidad: fechaCaducidad
             }),
             dataType: "json",
-        })
+        }).catch(console.error)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
