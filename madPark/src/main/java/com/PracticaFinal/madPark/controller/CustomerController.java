@@ -44,7 +44,6 @@ public class CustomerController {
         } else {
             return ResponseEntity.ok().body(new DataResponse("OK"));
         }
-
     }   
 
     @PostMapping("/customers")
