@@ -1,8 +1,8 @@
 
 package com.PracticaFinal.madPark.controller;
 
-import com.PracticaFinal.madPark.model.User;
-import com.PracticaFinal.madPark.service.UserService;
+import com.PracticaFinal.madPark.model.Customer;
+import com.PracticaFinal.madPark.service.CustomerService;
 
 //import com.PracticaFinal.madPark.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1")
-public class UserController {
+public class CustomerController {
     public record DataResponse (String result) {}
 
     @Autowired
-    private UserService userService;
+    private CustomerService customerService;
 
-    @GetMapping("/users")
-    public ResponseEntity<Iterable<User>> retrieveAllUsers() {
-        Iterable<User> response = userService.retrieveAllUsers();
-        for (User user : response) {
-            System.out.println(user.toString());
+    @GetMapping("/customers")
+    public ResponseEntity<Iterable<Customer>> retrieveAllCustomers() {
+        Iterable<Customer> response = customerService.retrieveAllCustomers();
+        for (Customer customer : response) {
+            System.out.println(customer.toString());
         }
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/users/{email}/")
-    public ResponseEntity<DataResponse> retrieveUser(@PathVariable String email) {
-        User response = userService.retrieveUser(email);
+    @GetMapping("/customers/{email}/")
+    public ResponseEntity<DataResponse> retrieveCustomer(@PathVariable String email) {
+        Customer response = customerService.retrieveCustomer(email);
 
         if (response == null) {
             //MENSAJE DE: ESE USUARIO NO EXISTE.
@@ -47,11 +47,11 @@ public class UserController {
 
     }   
 
-    @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        user.setId(null);
-        User newUser = userService.createUser(user);
-        return ResponseEntity.ok().body(newUser);
+    @PostMapping("/customers")
+    public ResponseEntity<Customer> create(@RequestBody Customer customer){
+        customer.setId(null);
+        Customer newCustomer = customerService.createCustomer(customer);
+        return ResponseEntity.ok().body(newCustomer);
     }
 
 }

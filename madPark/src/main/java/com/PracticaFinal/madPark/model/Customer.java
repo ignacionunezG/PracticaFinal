@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Data
 @Builder
-@Table("USER")
-public class User {
+@Table("CUSTOMER")
+public class Customer {
     
     private String name;
     private String apellidos;

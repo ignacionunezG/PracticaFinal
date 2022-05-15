@@ -2,7 +2,7 @@ package com.PracticaFinal.madPark.service.Implementation;
 
 import com.PracticaFinal.madPark.repository.CobroRepository;
 import com.PracticaFinal.madPark.model.Cobro;
-import com.PracticaFinal.madPark.model.User;
+import com.PracticaFinal.madPark.model.Customer;
 import com.PracticaFinal.madPark.service.CobroService;
 
 import org.springframework.beans.factory.annotation.Autowired;

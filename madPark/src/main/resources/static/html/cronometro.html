@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadPark</title>
+
+    <link rel="icon" type="image/x-icon" href="/madPark/src/main/resources/static/assets/LogoPFinal.PNG"
+        sizes="32x32" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../libs/bootstrap.css">
+    <link href="cronometro.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid" id="container">
+
+        <div class="center">
+            <div class="col" id="c3" >
+                <img src="../assets/LogoPFinal.PNG" alt="MadPark" width="500" height="250">
+            </div>
+        </div>
+        <div class="circle">
+            <div id="stopwatch" class="stopwatch">00:00</div>
+            <div class="buttons">
+                <!--<div class="stop" onclick="stop()"></div>-->
+                <!--<div id="play-pause" class="paused" onclick="playPause()"></div>-->
+            </div>
+        </div>
+        <div id="seconds-sphere" class="seconds-sphere"></div>
+        <div class="center">
+            <div class="col" id="c3">
+                <br>
+
+                
+                    <h2>¡Estás estacionado!</h2>
+                
+            </div>
+        </div>
+        <br>
+
+        <div class="row mt-6" id="columna_prueba">
+            <div class="center" id="registrarse">
+                <!--<button class="btn"> Registrarse </button>-->          
+                <a class="btn btn-primary" href="./resumen.html" onclick="stop()">Finalizar estacionamiento</a>
+            </div>
+      </div>
+    </div>
+
+    
+    <script src="../js/cronometro.js"></script>
+    <script src="../libs/bootstrap.js"></script>
+</body>
+</html>
