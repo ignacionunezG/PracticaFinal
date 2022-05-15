@@ -2,7 +2,7 @@
 const user_name = document.getElementById("name");
 const apellidos = document.getElementById("apellidos");
 const email = document.getElementById("email");
-const password = document.getElementById("password");  
+const password = document.getElementById("password");
 const numTarjeta = document.getElementById("numTarjeta");
 const cvv = document.getElementById("cvv");
 const caducidad = document.getElementById("caducidad");
@@ -123,12 +123,12 @@ function validateTarjeta(input) {
 function validateCaducidad(input) {
 
     var today = new Date();
-    var cad=new Date(input.value);
-    console.log(cad.getMonth()+1)
+    var cad = new Date(input.value);
+    console.log(cad.getMonth() + 1)
 
     var year = today.getFullYear();
     var month = today.getMonth() + 1;
-    
+
 
     // check if the value is not empty
     if (!notEmpty(input)) {
@@ -138,8 +138,8 @@ function validateCaducidad(input) {
     if (year > cad.getFullYear()) {
         return error(input)
     }
-    else if (year == cad.getFullYear() && month > cad.getMonth()+1) {
-        
+    else if (year == cad.getFullYear() && month > cad.getMonth() + 1) {
+
         return error(input)
     }
     else {
@@ -155,8 +155,8 @@ function validateCVV(input) {
     if (!notEmpty(input)) {
         return false;
     }
-    
-    if (cvvString.length!=3){
+
+    if (cvvString.length != 3) {
         return error(input)
     }
     else if (input.value > 999) {
@@ -171,7 +171,7 @@ function validateCVV(input) {
 
 
 
-async function validateForm() {
+function validateForm() {
 
     let nombreValid = notEmpty(user_name);
     let apellidosValid = notEmpty(apellidos);
@@ -184,58 +184,53 @@ async function validateForm() {
     //let docValid = validate_fileupload(form.elements["cv"],FILE_REQUIRED);
     // if valid, submit the form.
     if (nombreValid && apellidosValid && emailValid && passwordValid && numTarjetaValid && caducidadValid && cvvValid) {
-        
-        var cad=new Date(caducidad.value);
-        const fechaCaducidad=String(cad.getMonth()+1)+ "/" + String(cad.getFullYear())
-        const formData = new FormData();
-        console.log(fechaCaducidad)
-
-        let request = await fetch(" /api/v1/customers", {
-            method: "POST",
-            credentials: "same-origin",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                name: user_name.value,
-                apellidos: apellidos.value,
-                email: email.value,
-                password: password.value,
-                numTarjeta: numTarjeta.value,
-                cvv: cvv.value,
-                caducidad: fechaCaducidad
-            }),
-            dataType: "json",
-        }).catch(console.error)
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Something went wrong');
-            })
-            .then(data => {
-                console.log(data)
-                if (data.result === "OK") {
-                    window.location.href = "..html/map.html";
-                    alert("Registrado con éxito");
-                    //console.log(await request.json());
-                }
-                else {
-                    window.location.href = "..html/login.html";
-                    alert("Ya existe un usuario con esa cuenta");
-                    //console.log(await request.json());
-
-                }
-
-                console.log("Done");
-            })
-            .catch(error => console.error(error));
-
+        postConsumer();
     }
 }
+
+const postConsumer = async () => {
+
+    var cad = new Date(caducidad.value);
+    const fechaCaducidad = String(cad.getMonth() + 1) + "/" + String(cad.getFullYear())
+
+    let request = await fetch(" /api/v1/customers", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+            //"Access-Control-Allow-Origin": "*",
+            //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            //"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            name: user_name.value,
+            apellidos: apellidos.value,
+            email: email.value,
+            password: password.value,
+            numTarjeta: numTarjeta.value,
+            cvv: cvv.value,
+            caducidad: fechaCaducidad
+        }),
+        dataType: "json",
+    }).catch(console.error)
+
+    if (request.status === 200) {
+        let data = await request.json();
+        if (data.result === "OK") {
+            window.location.href = "..html/map.html";
+            alert("Registrado con éxito");
+        }
+        else {
+            window.location.href = "..html/login.html";
+            alert("Ya existe un usuario con esa cuenta");
+            //console.log(await request.json());
+        }
+    }
+    else {
+        throw new Error('Something went wrong');
+    }
+}
+
 
 form.addEventListener("submit", function (event) {
 
