@@ -49,7 +49,7 @@ public class CustomerController {
 
     @PostMapping("/customers")
     public ResponseEntity<Customer> create(@RequestBody Customer customer){
-        customer.setEmail(null);
+        //customer.setEmail(null);
         Customer newCustomer = customerService.createCustomer(customer);
         return ResponseEntity.ok().body(newCustomer);
     }

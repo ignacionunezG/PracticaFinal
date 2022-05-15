@@ -3,7 +3,7 @@ import com.PracticaFinal.madPark.repository.CustomerRepository;
 import com.PracticaFinal.madPark.model.Customer;
 import com.PracticaFinal.madPark.service.CustomerService;
 import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
-
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -32,7 +32,8 @@ public class CustomerServiceImplementation implements CustomerService{
 
     @Override
     public Customer createCustomer(Customer customer) {
-        return customerRepository.save(customer);
+        return customerRepository.createCustomer(customer);
+        //jdbcTemplate.execute("INSERT INTO PEDIDOS (PEDIDO_ID, PRECIO, ESTADO) VALUES ("+id+","+0+","+0+")")
     }
 
 }
