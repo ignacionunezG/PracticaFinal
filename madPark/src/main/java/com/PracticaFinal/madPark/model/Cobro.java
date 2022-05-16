@@ -18,8 +18,8 @@ public class Cobro {
     private String time;
     private float cost;
     
-    public Cobro() {
-    }
+    //public Cobro() {
+    //}
     public String getEmail() {
         return this.email;
     }

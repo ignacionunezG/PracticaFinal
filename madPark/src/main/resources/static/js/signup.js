@@ -193,11 +193,11 @@ const postConsumer = async () => {
     var cad = new Date(caducidad.value);
     const fechaCaducidad = String(cad.getMonth() + 1) + "/" + String(cad.getFullYear())
 
-    let request = await fetch(" /api/v1/customers", {
+    let request = await fetch("http://localhost:8080/api/v1/customers", {
         method: "POST",
         credentials: "same-origin",
         headers: {
-            //"Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "*",
             //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
             //"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
             "Content-type": "application/json"
@@ -214,6 +214,7 @@ const postConsumer = async () => {
         dataType: "json",
     }).catch(console.error)
 
+    console.log(request)
     if (request.status === 200) {
         let data = await request.json();
         if (data.result === "OK") {
