@@ -12,6 +12,7 @@ import lombok.Data;
 @Builder
 @Table("MATRICULAS")
 public class Matriculas {
+    
     @Id
     private String email;
     private String matricula1;

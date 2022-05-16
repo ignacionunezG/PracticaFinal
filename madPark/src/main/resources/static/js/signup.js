@@ -193,7 +193,7 @@ const postConsumer = async () => {
     var cad = new Date(caducidad.value);
     const fechaCaducidad = String(cad.getMonth() + 1) + "/" + String(cad.getFullYear())
 
-    let request = await fetch("http://localhost:8080/api/v1/customers", {
+    let request = await fetch("/api/v1/customers", {
         method: "POST",
         credentials: "same-origin",
         headers: {
