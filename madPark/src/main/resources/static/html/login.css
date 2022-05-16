@@ -2,20 +2,30 @@
     text-align: center;
     margin-top: 3em;
     background: rgb(255, 255, 255);
-    width: 50em;
+    width: 35em;
     height: 100%;
-    max-width: 100em;
-    min-width: 50em;
+    max-width: 200em;
+    min-width: 20em;
 }
 
 #submit_btn{
     margin-top: 2em;
 }
 
+#bienvenido{
+    margin-bottom: 1.3em;
+}
+
 #formulario{
     padding-top: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 3em;
     border-width: 1px;
     border-style: solid;
     border-color: black;
+    
+}
+
+
+#c3{
+    margin-top: 1em;
 }
