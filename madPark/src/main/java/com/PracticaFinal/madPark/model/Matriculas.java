@@ -20,6 +20,8 @@ public class Matriculas {
     private String matricula4;
     private String matricula5;
 
+    public Matriculas() {
+    }
     public void setEmail(String email) {
         this.email=email;
     }

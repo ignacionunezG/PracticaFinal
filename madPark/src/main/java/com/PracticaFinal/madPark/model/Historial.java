@@ -14,6 +14,9 @@ public class Historial {
     private int idPark;
     private String parking;
 
+    public Historial() {
+    }
+
     public String getEmail() {
         return this.email;
     }

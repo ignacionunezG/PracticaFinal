@@ -19,6 +19,8 @@ public class Customer {
     private int cvv;
     private String caducidad;
 
+    public Customer() {
+    }
     public void setName(String name) {
         this.name=name;
     }
