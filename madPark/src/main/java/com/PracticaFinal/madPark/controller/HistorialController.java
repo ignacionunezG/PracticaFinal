@@ -35,10 +35,8 @@ public class HistorialController {
         Historial response = HistorialService.retrieveHistorial(email);
 
         if (response == null) {
-            //MENSAJE DE: ESE USUARIO NO EXISTE.
             return ResponseEntity.ok().body(new DataResponse("KO"));
         } else {
-            //EL USUARIO EXISTE Y TIENE MATRÍCULAS
             return ResponseEntity.ok().body(new DataResponse("OK"));
         }
 
