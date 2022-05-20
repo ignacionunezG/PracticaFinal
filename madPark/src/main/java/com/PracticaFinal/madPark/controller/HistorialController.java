@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +58,13 @@ public class HistorialController {
         if (newHistorial == null) {
             return ResponseEntity.badRequest().body(null);
         }
+        return ResponseEntity.ok().body(newHistorial);
+    }
+
+    @PostMapping("/historial")
+    public ResponseEntity<Historial> create(@RequestBody Historial historial){
+
+        Historial newHistorial = service.createHistorial(historial);
         return ResponseEntity.ok().body(newHistorial);
     }
 
