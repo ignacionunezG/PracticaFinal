@@ -2,6 +2,9 @@
 
 Para la practica final de la asignatura de programación de aplicaciones telemáticas, hemos llevado a cabo una aplicación de gestión de parking en la ciudad de Madrid con la voluntad de solucionar un problema existente en dicha ciudad como es la dificultad que existe para encontrar un sitio libre y su posterior cobro del estacionamiento regulado.
 
+Link a Github pages:
+-https://ignacionunezg.github.io/PracticaFinal/
+
 ## Flujo habitual de Madpark
 - Inicio
 
@@ -21,6 +24,12 @@ En esta ventana, el usuario, conocedor de la disponibilidad real de aparcamiento
 ## Anotaciones técnicas
 Se ha realizado un testing de la aplicación con test E2E para los endpoints empleados. Las dependencias utilizadas son: 
 Spring Web, JDBC, Lombok, H2 Databases, Spring Security.
+
+Hemos tenido muchos problemas en la realización de los FETCH . No hemos conseguido que se realizasen correctamente, y no sabemos la razón todavía. Lo hemos intentado pero somos conscientes de que esa parte está por mejorar. No se pueden realizar POSTs ni GETs correctamente, de ahí que no hayamos podido verificar que el funcionamiento de los Javascript sea correcto. Esperamos conseguir solucionarlo cuanto antes, pero por el momento no lo hemos conseguido. Como no se realizan correctamente, no se puede hacer un Log In directamente y no se puede acceder a las páginas de la aplicación desde el Log In, por lo que este es el link para poder acceder al mapa.html:
+
+https://github.com/ignacionunezG/PracticaFinal/blob/main/madPark/src/main/resources/static/html/mapa.html
+
+Ya a partir de mapa.html se puede acceder a todas las vistas.
 
 ## Créditos
 Ayuntamiento de Madrid
