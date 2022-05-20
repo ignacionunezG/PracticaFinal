@@ -24,7 +24,7 @@ async function validateForm() {
             console.log(data)
             if (data.result === "OK") {
                 if (password == data.password) {
-                    window.location.href = "..html/map.html";
+                    window.location.href = "..html/mapa.html";
                     alert("Login successful");
                     console.log(await request.json());
                 }

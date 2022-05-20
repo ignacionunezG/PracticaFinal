@@ -218,7 +218,7 @@ const postConsumer = async () => {
     if (request.status === 200) {
         let data = await request.json();
         if (data.result === "OK") {
-            window.location.href = "..html/map.html";
+            window.location.href = "..html/mapa.html";
             alert("Registrado con éxito");
         }
         else {

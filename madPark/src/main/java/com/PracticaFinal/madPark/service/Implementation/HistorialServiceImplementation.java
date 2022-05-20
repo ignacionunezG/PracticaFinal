@@ -44,6 +44,12 @@ public class HistorialServiceImplementation implements HistorialService{
             return null;
         }
     }
+
+
+    @Override
+    public Historial createHistorial(Historial historial) {
+        return historialRepository.save(historial);
+    }
 }
 
 

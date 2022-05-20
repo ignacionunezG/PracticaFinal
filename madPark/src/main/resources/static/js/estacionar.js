@@ -12,9 +12,16 @@ function buscar() {
 
     //Borramos los elementos de la tabla
     limpiarTabla();
+    https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json?distrito_nombre=SAN%20BLAS-CANILLEJAS&barrio_nombre=Retiro
 
-    let api = 'https://datos.madrid.es/portal/site/egob/menuitem.ac61933d6ee3c31cae77ae7784f1a5a0/?vgnextoid=00149033f2201410VgnVCM100000171f5a0aRCRD&format=json&file=0&filename=202625-0-aparcamientos-publicos&mgmtid=26e6cc885fcd3410VgnVCM1000000b205a0aRCRD&preview=full';
+    let api = 'https://datos.madrid.es/egob/catalogo/202625-0-aparcamientos-publicos.json'
 
+    if (distrito !== null && distrito != ""){
+        api += '?distrito_nombre=' + distrito;
+    }
+    if (barrio !== "Any" && barrio!= null){
+        api += '&barrio_nombre=' + barrio;
+    }
 
     console.log(api)
 
@@ -58,18 +65,17 @@ function buscar() {
                 cell1.classList.add('align-middle');
                 var cell2 = row.insertCell(1);
                 cell2.classList.add('align-middle');
+                var cell3 = row.insertCell(1);
+                cell3.classList.add('align-middle');
                 
 
-                // Add some text to the new cells:
-                result1=results.@graph[i].
+                // Add some text to the new cells
 
-                cell1.innerHTML = results[i].name;
-                cell2.innerHTML = results[i].status;
-                cell4.innerHTML = results[i].species;
-                cell5.innerHTML = results[i].type;
-                cell6.innerHTML = results[i].gender;
-                cell7.innerHTML = results[i].origin.name;
-                cell8.innerHTML = results[i].location.name;
+                cell1.innerHTML = results.graph[i].title,
+                cell2.innerHTML = results.graph[i].address.street-address,
+                cell3.innerHTML = results.graph[i].organization.organization-desc
+
+
 
             }
 
@@ -82,24 +88,20 @@ function buscar() {
 
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded',function(){
     buscar();
 
-    document.querySelector('form').onsubmit = () => {
+    document.querySelector('form').onsubmit = () =>{
         pagina = 1;
         //Recogemos los valores introducidos por el usuario
-        nombre = document.querySelector('#Name').value;
-        estado = document.querySelector('#Status').value;
-        species = document.querySelector('#Species').value;
-        type = document.querySelector('#Type').value;
-        gender = document.querySelector('#Gender').value;
+        barrio = document.querySelector('#barrio').value;
+        distrito = document.querySelector('#distrito').value;
+        
 
         //Limpiamos los campos
-        document.querySelector('#Name').value = '';
-        document.querySelector('#Status').value = "Any";
-        document.querySelector('#Species').value = '';
-        document.querySelector('#Type').value = '';
-        document.querySelector('#Gender').value = 'Any';
+        document.querySelector('#barrio').value = '';
+        document.querySelector('#distrito').value = '';
+        
 
         buscar();
         //Stop form from submitting
@@ -107,9 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-function limpiarTabla() {
+
+function limpiarTabla(){
     var rowCount = tabla.rows.length;
-    for (var i = rowCount - 1; i > 0; i--) {
+    for (var i = rowCount-1;i>0;i--){
         tabla.deleteRow(i);
     }
 }

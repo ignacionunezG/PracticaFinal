@@ -4,7 +4,7 @@ const playPauseButton = document.getElementById('play-pause');
 const secondsSphere = document.getElementById('seconds-sphere');
 let stopwatchInterval;
 let runningTime = 0;
-let coste=0;
+const coste = 0;
 
 
 const playPause = () => {
@@ -30,6 +30,76 @@ const stop = () => {
     runningTime = 0;
     clearInterval(stopwatchInterval);
     stopwatch.textContent = '00:00';
+    
+    tiempo=calculateTime();
+    var today = new Date();
+
+    //POST EN BASES DE DATOS
+
+    let request = await fetch("/api/v1/historial", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            //"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            email:"",
+            idPark:"",
+            parking:""
+
+        }),
+        dataType: "json",
+    }).catch(console.error)
+
+    console.log(request)
+    if (request.status === 200) {
+        let data = await request.json();
+        if (data.result === "OK") {
+            alert("Todo OK")
+        }
+    }
+    else {
+        throw new Error('Something went wrong');
+    }
+
+    
+    let request2 = await fetch("/api/v1/cobro", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            //"Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+            //"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            email:"",
+            idPark:"",
+            date:today,
+            time:tiempo,
+            cost:coste
+
+        }),
+        dataType: "json",
+    }).catch(console.error)
+
+    console.log(request)
+    if (request.status === 200) {
+        let data = await request.json();
+        if (data.result === "OK") {
+            alert("Todo OK")
+        }
+    }
+    else {
+        throw new Error('Something went wrong');
+    }
+
+
+
+
 }
 
 const start = () => {
@@ -37,7 +107,7 @@ const start = () => {
     secondsSphere.style.animation = 'rotacion 60s linear infinite';
     let startTime = Date.now() - runningTime;
     secondsSphere.style.animationPlayState = 'running';
-    stopwatchInterval = setInterval( () => {
+    stopwatchInterval = setInterval(() => {
         runningTime = Date.now() - startTime;
         stopwatch.textContent = calculateTime(runningTime);
     }, 1000)
@@ -48,10 +118,10 @@ function round(num) {
     return Math.round(m) / 100 * Math.sign(num);
 }
 
-function calculatePrecio (total_minutes, total_seconds){
-    let precio=total_minutes*0.05;
-    precio=precio+(total_seconds/60)*0.05;
-    precio=round(precio);
+function calculatePrecio(total_minutes, total_seconds) {
+    let precio = total_minutes * 0.05;
+    precio = precio + (total_seconds / 60) * 0.05;
+    precio = round(precio);
 
     return precio;
 }
