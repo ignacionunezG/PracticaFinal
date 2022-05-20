@@ -11,7 +11,7 @@ Las dos primeras opciones, dirigen la página a menús, cada uno lleva a cabo su
 
 - Mapa
 
-Si los datos introducidos por el usuario pasan la comprobación, se le dirige a una página en la que puede visualizar una API del Ayuntamiento de Madrid que, con ayuda del desplegable inferior permite al usuario filtrar por barrio y zona y ver la disponibilidad en tiempo real de plazas, así como un conjunto de webcam de la zona.
+Si los datos introducidos por el usuario pasan la comprobación, se le dirige a una página en la que puede visualizar una API del Ayuntamiento de Madrid que permite visualizar la disponibilidad en tiempo real de plazas de aparcamiento, así como un conjunto de webcams de la zona.
 Haciendo click en el botón estacionar, se dirige a la gestión del parking.
 
 - Estacionar
