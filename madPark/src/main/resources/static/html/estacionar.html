@@ -21,83 +21,110 @@
                       <img src="/madPark/src/main/resources/static/assets/zyro-image.png" alt="MadPark" width="500" height="250">
                   </div>
               </div>
-              <div class="container cont-1 border border-3 mb-2 text-center">
-                <form class="row g-3 d-flex">
+                               
+                <div class="container cont-1 border border-3 mb-2 text-center">
+                    <form class="row g-3 d-flex">
 
-                    <div class="col-md-4">
-                        <label for="inputStatus" class="form-label" style="color: #1875FF"> Barrio</label>
-                        <select id="barrio" class="form-select">
-                            <option selected>Cualquiera</option>
-                            <option>Las Aguilas</option>
-                            <option>Valdefuentes</option>
-                            <option>Buenavista</option>
-                            <option>Fuentelarreina</option>
-                            <option>Prosperidad</option>
-                            <option>Puerta Angel</option>
-                            <option>Aravaca</option>
-                            <option>Pacífico</option>
-                            <option>MediaLegua</option>
-                            <option>Goya</option>
-                            <option>Adelfas</option>
-                            <option>Simancas</option>
-                            <option>Los Jeronimos</option>
-                            <option>Nueva Espana</option>
-                            <option>Nino Jesus</option>
-                            <option>Guindalera</option>
-                            <option>San Pascual</option>
-                            <option>Almagro</option>
-                            <option>Moscardo</option>
-                            <option>Justicia</option>
-                            <option>Cuatro Caminos</option>
-                            <option>Embajadores</option>
-                            <option>Lista</option>
-                            <option>Trafalgar</option>
-                            <option>Cortes</option>
-                            <option>Castillejos</option>
-                            <option>Palacio</option>
-                            <option>Sol</option>
-                            <option>Recoletos</option>
-                            <option>Castellana</option>
-                            <option>Universidad</option>
-                            <option>Arguelles</option>
-                            <option>Ciudad Jardin</option>
+                        <div class="col-md-4">
+                            <label for="inputStatus" class="form-label" style="color:rgb(203, 25, 25)">Barrio</label>
+                            <select id="barrio" class="form-select">
+                                <option selected>Cualquiera</option>
+                                <option>Las Aguilas</option>
+                                <option>Valdefuentes</option>
+                                <option>Buenavista</option>
+                                <option>Fuentelarreina</option>
+                                <option>Prosperidad</option>
+                                <option>Puerta Angel</option>
+                                <option>Aravaca</option>
+                                <option>Pacífico</option>
+                                <option>MediaLegua</option>
+                                <option>Goya</option>
+                                <option>Adelfas</option>
+                                <option>Simancas</option>
+                                <option>Los Jeronimos</option>
+                                <option>Nueva Espana</option>
+                                <option>Nino Jesus</option>
+                                <option>Guindalera</option>
+                                <option>San Pascual</option>
+                                <option>Almagro</option>
+                                <option>Moscardo</option>
+                                <option>Justicia</option>
+                                <option>Cuatro Caminos</option>
+                                <option>Embajadores</option>
+                                <option>Lista</option>
+                                <option>Trafalgar</option>
+                                <option>Cortes</option>
+                                <option>Castillejos</option>
+                                <option>Palacio</option>
+                                <option>Sol</option>
+                                <option>Recoletos</option>
+                                <option>Castellana</option>
+                                <option>Universidad</option>
+                                <option>Arguelles</option>
+                                <option>Ciudad Jardin</option>
 
-                        </select>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="inputStatus" class="form-label" style="color:red">Distrito</label>
+                            <select id="distrito" class="form-select">
+                                <option selected>Cualquiera</option>
+                                <option>Carabanchel</option>
+                                <option>Centro</option>
+                                <option>Chamartin</option>
+                                <option>Chamberi</option>
+                                <option>Ciudad Lineal</option>
+                                <option>Fuencarral-El Pardo</option>
+                                <option>Hortaleza</option>
+                                <option>Latina</option>
+                                <option>Moncloa-Aravaca</option>
+                                <option>Moratalaz</option>
+                                <option>Retiro</option>
+                                <option>Salamanca</option>
+                                <option>SanBlas Canillejas</option>
+                                <option>Tetuan</option>
+                                <option>Usera</option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="inputType" class="form-label" style="color:red">Direccion</label>
+                            <input type="text" class="form-control" id="Type">
+                        </div>
+
+                        <div>
+                            <button type="submit" id="btn-form" class="btn btn-outline-light btn-lg">Search</button>
+                        </div>
+                    </form> -->
+                    <h3></h3>
+                </div>
+
+                <!-- Simulación de que está tardando tiempo en cargar-->
+                <div class="d-flex justify-content-center pb-2 mt-2">
+                    <div class="spinner-border text-primary visually-hidden" role="status" id="loading">
+                        <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputStatus" class="form-label" style="color:#1875FF">Distrito</label>
-                        <select id="distrito" class="form-select">
-                            <option selected>Cualquiera</option>
-                            <option>Carabanchel</option>
-                            <option>Centro</option>
-                            <option>Chamartin</option>
-                            <option>Chamberi</option>
-                            <option>Ciudad Lineal</option>
-                            <option>Fuencarral-El Pardo</option>
-                            <option>Hortaleza</option>
-                            <option>Latina</option>
-                            <option>Moncloa-Aravaca</option>
-                            <option>Moratalaz</option>
-                            <option>Retiro</option>
-                            <option>Salamanca</option>
-                            <option>SanBlas Canillejas</option>
-                            <option>Tetuan</option>
-                            <option>Usera</option>
-                        </select>
-                    </div>
+                </div>
 
 
-                    <div class="col-md-4">
-                        <label for="inputType" class="form-label" style="color:#1875FF">Direccion</label>
-                        <input type="text" class="form-control" id="Type">
-                    </div>
-
-                    <div>
-                        <button type="submit" id="btn-form" class="btn btn-outline-primary btn-lg">Iniciar estacionamiento</button>
-                    </div>
-                </form>
-                <h3></h3>
+                <div class="container">
+                    <table class="table table-hover table-dark table-striped border border-3 res text-center" id="tabla">
+                      <thead>
+                          <tr>
+                              <th></th>
+                              <th>Parking</th>
+                              <th>Direccion</th>
+                              <!--<th>Episode</th>-->
+                          </tr>
+                      </thead>
+                      <tbody id="data" style="border-collapse: collapse;">
+        
+                      </tbody>
+                    </table>
+                </div>
             </div>
+            <!-- End of Main Content -->
               </div>
           </div>
       </div>
