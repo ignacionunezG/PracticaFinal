@@ -19,7 +19,8 @@ Haciendo click en el botón estacionar, se dirige a la gestión del parking.
 En esta ventana, el usuario, conocedor de la disponibilidad real de aparcamientos, introducirá la zona donde finalemnte ha decidido aparcar. Tras pulsar Iniciar estacionamiento, se inicia un contador que calcula el tiempo total del estacionameinto. Una vez finalizado, se dirige un menú que visualiza el historial de parkings del usuario a la espera de que se confirme el cobro. Una vez confirmado, se puede volver al mapa y repetir el proceso, o por el contraio cerrar sesión.
 
 ## Anotaciones técnicas
-Se ha realizado un testing de la aplicación con test E2E para los endpoints empleados. Las dependencias utilizadas son: Spring Web, JDBC, Lombok, H2 Databases, Spring Security.
+Se ha realizado un testing de la aplicación con test E2E para los endpoints empleados. Las dependencias utilizadas son: 
+Spring Web, JDBC, Lombok, H2 Databases, Spring Security.
 
 ## Créditos
 Ayuntamiento de Madrid
