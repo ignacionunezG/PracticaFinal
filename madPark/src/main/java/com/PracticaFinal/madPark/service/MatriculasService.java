@@ -8,5 +8,4 @@ public interface MatriculasService {
     Iterable<Matriculas> retrieveAllMatriculas();
     Matriculas updateMatriculas(String email, Matriculas matriculas);
 
-
 }
