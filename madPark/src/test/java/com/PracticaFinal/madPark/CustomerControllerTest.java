@@ -1,5 +1,5 @@
 package com.PracticaFinal.madPark;
 
-public class UserTest {
+public class CustomerControllerTest {
     
 }

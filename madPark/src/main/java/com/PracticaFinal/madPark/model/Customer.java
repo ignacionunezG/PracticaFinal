@@ -19,6 +19,17 @@ public class Customer {
     private int cvv;
     private String caducidad;
 
+    public Customer(String name, String apellidos, String email, String password, Long numTarjeta, int cvv,
+            String caducidad) {
+        this.name = name;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.password = password;
+        this.numTarjeta = numTarjeta;
+        this.cvv = cvv;
+        this.caducidad = caducidad;
+    }
+
     public Customer() {
     }
     public void setName(String name) {

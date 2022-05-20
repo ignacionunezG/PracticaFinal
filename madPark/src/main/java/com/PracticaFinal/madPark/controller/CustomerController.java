@@ -7,6 +7,8 @@ import com.PracticaFinal.madPark.service.CustomerService;
 //import com.PracticaFinal.madPark.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +27,11 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping("/customers")
-    public ResponseEntity<Iterable<Customer>> retrieveAllCustomers() {
+    public ResponseEntity<Iterable<Customer>> retrieveAllCustomers(@AuthenticationPrincipal Customer c) {
         Iterable<Customer> response = customerService.retrieveAllCustomers();
         for (Customer customer : response) {
             System.out.println(customer.toString());
@@ -49,6 +54,9 @@ public class CustomerController {
     @PostMapping("/customers")
     public ResponseEntity<Customer> create(@RequestBody Customer customer){
         //customer.setEmail(null);
+        
+        String hashedPass = passwordEncoder.encode(customer.getPassword());
+        customer.setPassword(hashedPass);
         Customer newCustomer = customerService.createCustomer(customer);
         return ResponseEntity.ok().body(newCustomer);
     }

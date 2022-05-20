@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception{
         http
+            .cors().and().csrf().disable()
+            //.and();
+
             .authorizeRequests()
                 .antMatchers("/api/v1/documents", "/api/v1/documents/**").permitAll() //las url que no necesitan auth (login y esas)
                 .anyRequest().authenticated()
@@ -50,9 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
             )
-            .httpBasic()
-            .and()
-            .cors().and().csrf().disable();
+            .httpBasic();
     }
 
     @Override
