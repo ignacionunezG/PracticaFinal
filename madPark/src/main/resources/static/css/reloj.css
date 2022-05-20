@@ -1,0 +1,13 @@
+.center {
+    text-align: center;
+}
+
+#container{
+    text-align: center;
+    margin-top: 3em;
+    background: rgb(255, 255, 255);
+    width: 30em;
+    height: 100%;
+    max-width: 100em;
+    min-width: 50em;
+}
